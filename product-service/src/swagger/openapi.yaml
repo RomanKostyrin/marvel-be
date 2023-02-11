@@ -1,0 +1,147 @@
+openapi: 3.0.3
+info:
+  title: Swagger Marvel's Movies  - OpenAPI 3.0
+  description: |-
+    This is a sample Marvel's Movies Store Server based on the OpenAPI 3.0 specification.
+
+  contact:
+    email: Kostyrin_Roman@epam.com
+  version: 1.0.11
+externalDocs:
+  description: Try it on my website
+  url: https://dc6svv1hcod86.cloudfront.net/
+servers:
+  - url: https://o8m5ph3yg1.execute-api.eu-west-1.amazonaws.com/dev
+tags:
+  - name: products
+    description: movies
+paths:
+  /products:
+    get:
+      tags:
+        - products
+      parameters:
+        - in: query
+          name: filter
+          required: false
+          schema:
+            type: string
+          description: Filter fom aside menu
+      summary: Get list of movies
+      description: Get list of movies from DynamoDB
+      operationId: getProductsList
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Products'
+        '404':
+          description: Products not found with current filter
+
+  /products/{productId}:
+    get:
+      parameters:
+        - in: path
+          name: productId
+          required: true
+          schema:
+            type: string
+      tags:
+        - products
+      summary: Get the movie from DynamoDB
+      description: Get the movie from DynamoDB
+      operationId: getProductbyId
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductResponse'
+        '405':
+          description: Product not found
+    post:
+      parameters:
+        - in: path
+          name: productId
+          required: true
+          schema:
+            $ref: '#/components/schemas/Product'
+      tags:
+        - products
+      summary: Add the new movie to DynamoDB
+      description: Add the new movie to DynamoDB
+      operationId: createProduct
+      requestBody:
+        description: Create the movie
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductResponse'
+        '400':
+          description: Provide a correct object
+
+components:
+  schemas:
+    Product:
+      required:
+        - description
+        - menu
+        - price
+        - title
+      type: object
+      properties:
+        price:
+          type: number
+          example: 10
+        description:
+          type: string
+          example: A billionaire industrialist and genius inventor, Tony Stark (Robert Downey Jr.)...
+        menu:
+          type: string
+          description: filter for aside menu
+          example: 1
+        title:
+          type: string
+          description: product title in the store
+          example: Iron Man
+    ProductResponse:
+      required:
+        - description
+        - menu
+        - price
+        - title
+      type: object
+      properties:
+        price:
+          type: number
+          example: 10
+        description:
+          type: string
+          example: A billionaire industrialist and genius inventor, Tony Stark (Robert Downey Jr.)...
+        menu:
+          type: string
+          description: filter for aside menu
+          example: 1
+        title:
+          type: string
+          description: product title in the store
+          example: Iron Man
+        id:
+          type: string
+          description: uuid
+          example: c5ecb8f8-3418-4860-98ea-51065b9458fe
+    Products:
+      type: array
+      items:
+        $ref: '#/components/schemas/ProductResponse'
