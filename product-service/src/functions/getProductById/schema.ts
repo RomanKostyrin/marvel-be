@@ -3,7 +3,7 @@ export default {
   properties: {
     pathParameters: {
       type: 'object',
-      properties: { productId: { type: 'string', pattern: '^[\\d]+$' } },
+      properties: { productId: { type: 'string' } },
       required: ['productId'],
     },
   },

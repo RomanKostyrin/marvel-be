@@ -21,4 +21,4 @@ const getProductById: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async 
   }
 };
 
-export const main = middyfy(getProductById);
+export const main = middyfy(getProductById, schema);

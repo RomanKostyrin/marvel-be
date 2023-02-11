@@ -96,7 +96,6 @@ components:
     Product:
       required:
         - description
-        - menu
         - price
         - title
       type: object
@@ -121,6 +120,7 @@ components:
         - menu
         - price
         - title
+        - id
       type: object
       properties:
         price:

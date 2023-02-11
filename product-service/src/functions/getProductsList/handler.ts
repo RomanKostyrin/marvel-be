@@ -21,4 +21,4 @@ export const getProductsList: ValidatedEventAPIGatewayProxyEvent<typeof schema> 
   }
 };
 
-export const main = middyfy(getProductsList);
+export const main = middyfy(getProductsList, schema);

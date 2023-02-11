@@ -1,6 +1,7 @@
 import { APIGatewayProxyResult, Context } from 'aws-lambda';
 import { main } from './handler';
 import { createMockEventWithUser } from '@libs/mocks';
+import schema from './schema';
 
 describe('getProductById', () => {
   test('should return product by id correctly', async () => {
@@ -14,7 +15,7 @@ describe('getProductById', () => {
     };
     const event = createMockEventWithUser({ pathParams: { productId: 'ironMan' } });
 
-    const response = (await main(event, {} as Context)) as APIGatewayProxyResult;
+    const response = (await main(event, schema as unknown as Context)) as APIGatewayProxyResult;
     const result = JSON.parse(response.body);
 
     expect(result).toMatchObject({ data: responseData });
@@ -23,7 +24,7 @@ describe('getProductById', () => {
   test('should return erorr if product does not exist with provided id', async () => {
     const event = createMockEventWithUser({ pathParams: { productId: 'wrongId' } });
 
-    const response = (await main(event, {} as Context)) as APIGatewayProxyResult;
+    const response = (await main(event, schema as unknown as Context)) as APIGatewayProxyResult;
     const result = JSON.parse(response.body);
 
     expect(result).toMatchObject({ error: 'Product not found' });
