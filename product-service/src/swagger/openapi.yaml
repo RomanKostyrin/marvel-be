@@ -39,6 +39,28 @@ paths:
                 $ref: '#/components/schemas/Products'
         '404':
           description: Products not found with current filter
+    post:
+      tags:
+        - products
+      summary: Add the new movie to DynamoDB
+      description: Add the new movie to DynamoDB
+      operationId: createProduct
+      requestBody:
+        description: Create the movie
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductResponse'
+        '400':
+          description: Provide a correct object
 
   /products/{productId}:
     get:
@@ -62,34 +84,6 @@ paths:
                 $ref: '#/components/schemas/ProductResponse'
         '405':
           description: Product not found
-    post:
-      parameters:
-        - in: path
-          name: productId
-          required: true
-          schema:
-            $ref: '#/components/schemas/Product'
-      tags:
-        - products
-      summary: Add the new movie to DynamoDB
-      description: Add the new movie to DynamoDB
-      operationId: createProduct
-      requestBody:
-        description: Create the movie
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Product'
-        required: true
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProductResponse'
-        '400':
-          description: Provide a correct object
 
 components:
   schemas:
@@ -98,6 +92,7 @@ components:
         - description
         - price
         - title
+        - count
       type: object
       properties:
         price:
@@ -114,6 +109,10 @@ components:
           type: string
           description: product title in the store
           example: Iron Man
+        count:
+          type: number
+          description: products count
+          example: 10
     ProductResponse:
       required:
         - description
@@ -121,6 +120,7 @@ components:
         - price
         - title
         - id
+        - count
       type: object
       properties:
         price:
@@ -141,6 +141,10 @@ components:
           type: string
           description: uuid
           example: c5ecb8f8-3418-4860-98ea-51065b9458fe
+        count:
+          type: number
+          description: products count
+          example: 10
     Products:
       type: array
       items:
