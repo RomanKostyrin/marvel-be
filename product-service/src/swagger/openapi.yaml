@@ -60,7 +60,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProductResponse'
         '400':
-          description: Provide a correct object
+          description: Event object failed validation
 
   /products/{productId}:
     get:

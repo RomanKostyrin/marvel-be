@@ -9,15 +9,13 @@ export const getProductsList: ValidatedEventAPIGatewayProxyEvent<typeof schema> 
     const filter = event.queryStringParameters?.filter as unknown as string;
     const data = await getProducts(filter);
     if (!data.length) {
-      throw new Error('Products not found with current filter');
+      return formatJSONErrorResponse({
+        error: 'Products not found with current filter',
+      });
     }
-    return formatJSONResponse({
-      data,
-    });
+    return formatJSONResponse(data);
   } catch (error) {
-    return formatJSONErrorResponse({
-      error: error.message,
-    });
+    return formatJSONErrorResponse(error);
   }
 };
 

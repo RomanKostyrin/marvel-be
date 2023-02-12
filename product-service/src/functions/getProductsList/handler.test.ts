@@ -11,7 +11,7 @@ describe('getProductsList', () => {
     const response = (await main(event, schema as unknown as Context)) as APIGatewayProxyResult;
     const result = JSON.parse(response.body);
 
-    expect(result).toMatchObject({ data: products });
+    expect(result).toMatchObject(products);
   });
 
   test('should return filtered products list correctly', async () => {
@@ -21,7 +21,7 @@ describe('getProductsList', () => {
     const response = (await main(event, schema as unknown as Context)) as APIGatewayProxyResult;
     const result = JSON.parse(response.body);
 
-    expect(result).toMatchObject({ data: filteredData });
+    expect(result).toMatchObject(filteredData);
   });
 
   test('should return error if provides wrong filter', async () => {

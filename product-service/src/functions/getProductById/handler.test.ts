@@ -18,7 +18,7 @@ describe('getProductById', () => {
     const response = (await main(event, schema as unknown as Context)) as APIGatewayProxyResult;
     const result = JSON.parse(response.body);
 
-    expect(result).toMatchObject({ data: responseData });
+    expect(result).toMatchObject(responseData);
   });
 
   test('should return erorr if product does not exist with provided id', async () => {

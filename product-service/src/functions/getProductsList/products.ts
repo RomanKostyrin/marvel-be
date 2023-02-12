@@ -1,10 +1,4 @@
-export type Product = {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  menu: string;
-};
+import { Product } from 'src/types';
 
 export const products: Product[] = [
   {
@@ -14,6 +8,7 @@ export const products: Product[] = [
     price: 24,
     title: 'Iron Man',
     menu: '1',
+    count: 5,
   },
   {
     description:
@@ -22,6 +17,7 @@ export const products: Product[] = [
     price: 15,
     title: 'The Incredible Hulk',
     menu: '',
+    count: 5,
   },
   {
     description:
@@ -30,6 +26,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Iron Man 2',
     menu: '1',
+    count: 5,
   },
   {
     description:
@@ -38,6 +35,7 @@ export const products: Product[] = [
     price: 23,
     title: 'Thor',
     menu: '2',
+    count: 5,
   },
   {
     description:
@@ -46,6 +44,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Captain America: The First Avenger',
     menu: '3',
+    count: 5,
   },
   {
     description:
@@ -54,6 +53,7 @@ export const products: Product[] = [
     price: 23,
     title: 'Marvel’s The First Avengers',
     menu: '4',
+    count: 5,
   },
   {
     description:
@@ -62,6 +62,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Iron Man 3',
     menu: '1',
+    count: 5,
   },
   {
     description:
@@ -70,6 +71,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Thor: The Dark World',
     menu: '2',
+    count: 5,
   },
   {
     description:
@@ -78,6 +80,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Captain America: The Winter Soldier',
     menu: '3',
+    count: 5,
   },
   {
     description:
@@ -86,6 +89,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Guardians of the Galaxy',
     menu: '5',
+    count: 5,
   },
   {
     description:
@@ -94,6 +98,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Avengers: Age of Ultron',
     menu: '4',
+    count: 5,
   },
   {
     description:
@@ -102,6 +107,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Ant-Man',
     menu: '6',
+    count: 5,
   },
   {
     description:
@@ -110,6 +116,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Captain America: Civil War',
     menu: '3',
+    count: 5,
   },
   {
     description:
@@ -118,6 +125,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Doctor Strange',
     menu: '7',
+    count: 5,
   },
   {
     description:
@@ -126,6 +134,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Guardians of the Galaxy Vol. 2',
     menu: '5',
+    count: 5,
   },
   {
     description:
@@ -134,6 +143,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Spider-Man: Homecoming',
     menu: '8',
+    count: 5,
   },
   {
     description:
@@ -142,6 +152,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Thor: Ragnarok',
     menu: '2',
+    count: 5,
   },
   {
     description:
@@ -150,6 +161,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Black Panther',
     menu: '9',
+    count: 5,
   },
   {
     description:
@@ -158,6 +170,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Avengers: Infinity War',
     menu: '4',
+    count: 5,
   },
   {
     description:
@@ -166,6 +179,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Ant-Man and the Wasp',
     menu: '6',
+    count: 5,
   },
   {
     description:
@@ -174,6 +188,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Captain Marvel',
     menu: '',
+    count: 5,
   },
   {
     description:
@@ -182,6 +197,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Avengers: Endgame',
     menu: '4',
+    count: 5,
   },
   {
     description:
@@ -190,6 +206,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Spider-Man: Far From Home',
     menu: '8',
+    count: 5,
   },
   {
     description:
@@ -198,6 +215,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Black Widow',
     menu: '',
+    count: 5,
   },
   {
     description:
@@ -206,6 +224,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Shang-Chi and the Legend of the Ten Rings',
     menu: '',
+    count: 5,
   },
   {
     description:
@@ -214,6 +233,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Eternals',
     menu: '',
+    count: 5,
   },
   {
     description:
@@ -222,6 +242,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Spider-Man: No Way Home',
     menu: '8',
+    count: 5,
   },
   {
     description:
@@ -230,6 +251,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Doctor Strange in the Multiverse of Madness',
     menu: '7',
+    count: 5,
   },
   {
     description:
@@ -238,6 +260,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Thor: Love and Thunder',
     menu: '2',
+    count: 5,
   },
   {
     description:
@@ -246,6 +269,7 @@ export const products: Product[] = [
     price: 15,
     title: 'Black Panther: Wakanda Forever',
     menu: '9',
+    count: 5,
   },
 ];
 
